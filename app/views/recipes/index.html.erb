@@ -1,7 +1,6 @@
 <h1>Recipes#index</h1>
-
 <%= link_to 'Add Recipe', new_food_path%>
-.<% @recipes.each do |recipe| %>
+<% @recipes.each do |recipe| %>
  <p><%= recipe.name %></p>
     <p><%= recipe.description %></p>
 
