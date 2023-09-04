@@ -18,15 +18,15 @@ class FoodsController < ApplicationController
       redirect_to request.referrer
     end
   end
-  
+
   def destroy
     @food = Food.find(params[:id])
     @food.destroy
     redirect_to foods_path
   end
-  
-  private 
-  
+
+  private
+
   def food_params
     params.require(:food).permit(:name, :measurment_unit, :price, :quantity)
   end
