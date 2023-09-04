@@ -16,8 +16,8 @@
 #
 default: &default
   username: postgres
-  password: 123456
-  # password: Binni@6584
+  # password: 123456
+  password: Binni@6584
 
   adapter: postgresql
   encoding: unicode
