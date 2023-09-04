@@ -1,0 +1,8 @@
+<h2><%=@recipe.name%></h2>
+<p>Prepration Time: <%=@recipe.prepration_time%></p>
+<p>Cooking Time: <%=@recipe.cooking_time%></p>
+<p>Steps go here...</p>
+
+<input type="checkbox" name="public" checked>
+ <%= button_to  "Generate Shopping List", foods_path %>
+ <%= button_to  "Add ingredient", foods_path %>
