@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
   resources :foods
   get 'public_recipes', to: 'recipes#public_recipes'
-  root 'home#index'
+  get 'general_shopping_list', to: 'home#shopping_list'
+  root 'recipes#public_recipes'
   devise_for :users
 end
