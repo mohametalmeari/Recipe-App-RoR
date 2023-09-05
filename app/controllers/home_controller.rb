@@ -6,6 +6,6 @@ class HomeController < ApplicationController
       food.update_quantity
       @total_value += food.quantity * food.price
     end
-    @foods = Food.where("quantity != 0")
+    @foods = Food.where('quantity != 0')
   end
 end
