@@ -27,7 +27,6 @@ class IngredientsController < ApplicationController
   def destroy
     @ingredient = Ingredient.find(params[:id])
 
-
     flash[:notice] = if @ingredient.destroy
                        'Ingredient Removed!'
                      else
