@@ -13,7 +13,6 @@
       <td><%= food.measurment_unit %></td>
       <td>$ <%= food.price %></td>
       <td> <%= button_to  "Delete", food_path(food), method: :delete %></td>
-      <td>draft:: <%= food.quantity %></td>
     </tr>
   <% end %>
 </table>

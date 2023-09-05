@@ -2,6 +2,10 @@
 <% @recipes.each do |recipe| %>
   <p><%= recipe.name %></p>
   <p>By: <%= recipe.user.name %></p>
-  <p>Total food items: <%=  %></p>
-  <p>Total price: $ <%=  %></p>
+  <p>Total food items: <%= recipe.ingredients.length %></p>
+  <% total_price = 0 %>
+  <% recipe.ingredients.each do |ingredient| %>
+    <% total_price += ingredient.quantity * ingredient.food.price %>
+  <% end %>
+  <p>Total price: $ <%= total_price %></p>
 <% end %>
