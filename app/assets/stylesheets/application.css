@@ -48,6 +48,10 @@ h1 {
   width: 60%;
 }
 
+td section {
+  display: flex;
+}
+
 .recipe-card section {
   flex: 1;
 }
@@ -128,7 +132,6 @@ input[type=submit] {
   justify-content: center;
 }
 
-
 .recipe-header section > :first-child {
   flex: 1;
 }
@@ -166,10 +169,6 @@ td {
 
 th {
   background-color: lightblue;
-}
-
-td section {
-  display: flex;
 }
 
 .foods-container {

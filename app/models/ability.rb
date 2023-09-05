@@ -17,11 +17,7 @@ class Ability
     cannot :destroy, Food do |food|
       food.ingredients.any? { |ingredient| ingredient.recipe.user_id != user.id }
     end
-    cannot :manage, Ingredient do |ingredient|
-      ingredient.recipe.user_id != user.id
-    end
-    can :read, Ingredient, :all
-    can :create, Ingredient, :all
+    can :manage, Ingredient, :all
 
     can :manage, :all if user.role == 'admin'
   end
