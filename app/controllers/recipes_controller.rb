@@ -4,9 +4,7 @@ class RecipesController < ApplicationController
   end
 
   def public_recipes
-    @recipes = Recipe.where(public: true)
-    
-    # @recipes = Recipe.all.order(created_at: :desc)
+    @recipes = Recipe.where(public: true).order(created_at: :desc)
   end
 
   def new
@@ -15,6 +13,13 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @ingredients = @recipe.ingredients
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(public_param)
+    redirect_to request.referrer
   end
 
   def create
@@ -29,9 +34,22 @@ class RecipesController < ApplicationController
     end
   end
 
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @ingredients = @recipe.ingredients
+    @ingredients.destroy_all
+    @recipe.destroy
+    redirect_to recipes_path
+  end
+
+
   private
 
   def recipe_params
     params.require(:recipe).permit(:name, :prepration_time, :cooking_time, :description, :public)
+  end
+
+  def public_param
+    params.require(:recipe).permit(:public)
   end
 end

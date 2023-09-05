@@ -1,10 +1,10 @@
 <h1>Recipes#index</h1>
-<%= link_to 'Add Recipe', new_food_path%>
+<%= link_to 'Add Recipe', new_recipe_path%>
 <% @recipes.each do |recipe| %>
- <p><%= recipe.name %></p>
+  <%= link_to recipe_path(recipe) do %>
+    <p><%= recipe.name %></p>
     <p><%= recipe.description %></p>
-
-     <%= button_to  "Delete", recipe_path(recipe), method: :delete %>
+    <%= button_to  "Delete", recipe_path(recipe), method: :delete %>
+  <% end %>
 <% end %>
-
 </table>

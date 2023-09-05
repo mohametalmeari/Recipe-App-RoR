@@ -15,10 +15,7 @@
     <%= f.number_field :price, step: 0.01 %>
   </div>
 
-  <div class="field">
-    <%= f.label :quantity %>: 
-    <%= f.number_field :quantity %>
-  </div>
+  <%= f.hidden_field :quantity, value: 0 %>
 
   <%= f.submit "Add Food" %>
 <% end %>
