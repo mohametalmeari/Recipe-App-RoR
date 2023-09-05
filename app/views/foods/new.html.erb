@@ -4,21 +4,14 @@
     <%= f.label :name %>: 
     <%= f.text_field :name %>
   </div>
-
   <div class="field">
     <%= f.label :measurment_unit %>: 
     <%= f.text_field :measurment_unit %>
   </div>
-
   <div class="field">
     <%= f.label :price %>: 
     <%= f.number_field :price, step: 0.01 %>
   </div>
-
-  <div class="field">
-    <%= f.label :quantity %>: 
-    <%= f.number_field :quantity %>
-  </div>
-
+  <%= f.hidden_field :quantity, value: 0 %>
   <%= f.submit "Add Food" %>
 <% end %>

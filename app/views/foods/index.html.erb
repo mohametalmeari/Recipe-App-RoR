@@ -1,7 +1,5 @@
 <h1>Foods#index</h1>
-
 <%= link_to 'Add Food', new_food_path%>
-
 <table>
   <tr>
     <th>Food</th>
@@ -9,14 +7,13 @@
     <th>Unit Price</th>
     <th>Actions</th>
   </tr>
-.<% @foods.each do |food| %>
-  <tr>
-    <td><%= food.name %></td>
-    <td><%= food.measurment_unit %></td>
-    <td>$ <%= food.price %></td>
-
-    <td> <%= button_to  "Delete", food_path(food), method: :delete %></td>
-  </tr>
-<% end %>
-
+  <% @foods.each do |food| %>
+    <tr>
+      <td><%= food.name %></td>
+      <td><%= food.measurment_unit %></td>
+      <td>$ <%= food.price %></td>
+      <td> <%= button_to  "Delete", food_path(food), method: :delete %></td>
+      <td>draft:: <%= food.quantity %></td>
+    </tr>
+  <% end %>
 </table>
