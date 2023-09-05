@@ -1,4 +1,9 @@
 class FoodsController < ApplicationController
+  load_and_authorize_resource
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_path, notice: 'Access denied' 
+  end
+
   def index
     @foods = Food.all.order(created_at: :desc)
   end

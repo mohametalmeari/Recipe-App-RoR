@@ -4,7 +4,7 @@
   <%= link_to recipe_path(recipe) do %>
     <p><%= recipe.name %></p>
     <p><%= recipe.description %></p>
-    <%= button_to  "Delete", recipe_path(recipe), method: :delete %>
   <% end %>
+  <%= button_to  "Delete", recipe_path(recipe), method: :delete %>
 <% end %>
 </table>
