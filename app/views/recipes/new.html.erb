@@ -4,26 +4,21 @@
     <%= f.label :name %>: 
     <%= f.text_field :name %>
   </div>
-
   <div class="field">
     <%= f.label :prepration_time %>: 
     <%= f.number_field :prepration_time, step: 0.01 %>
   </div>
-
   <div class="field">
     <%= f.label :cooking_time %>: 
     <%= f.number_field :cooking_time, step: 0.01 %>
   </div>
-
   <div class="field">
     <%= f.label :description %>: 
     <%= f.text_field :description %>
   </div>
-
   <div class="public">
     <%= f.label :public %>: 
     <%= f.check_box :public %>
   </div>
-
   <%= f.submit "Add Food" %>
 <% end %>
