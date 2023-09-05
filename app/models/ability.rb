@@ -13,7 +13,7 @@ class Ability
       food.user_id != user.id
     end
 
-    # Ingredient Authorization 
+    # Ingredient Authorization
     cannot :destroy, Food do |food|
       food.ingredients.any? { |ingredient| ingredient.recipe.user_id != user.id }
     end

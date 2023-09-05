@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
   load_and_authorize_resource
-  rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_path, notice: 'Failed to delete this food item because it is being used by other users.' 
+  rescue_from CanCan::AccessDenied do |_exception|
+    redirect_to root_path, notice: 'Failed to delete this food item because it is being used by other users.'
   end
 
   def index
