@@ -6,7 +6,6 @@ class Ability
     # Recipe Authorization
     can :manage, Recipe, user_id: user.id
 
-
     # Food Authorization
     can :manage, Food, :all
     cannot :destroy, Food do |food|

@@ -6,8 +6,8 @@ class IngredientsController < ApplicationController
 
   def new
     # @foods = Food.all.order(created_at: :desc)
-    @recipe = Recipe.find(params[:recipe_id])
-    @foods = Food.where.not(id: Ingredient.where(recipe_id: @recipe.id).pluck(:food_id))
+    @recipe = Recipe.find(params[:recipe_id]).includes([:ingredients])
+    @foods = Food.where.not(id: Ingredient.where(recipe_id: @recipe.id).pluck(:food_id)).includes([:ingredients])
 
     @ingredient = Ingredient.new
   end

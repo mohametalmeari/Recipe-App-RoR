@@ -79,3 +79,5 @@ gem 'devise'
 gem 'cancancan'
 
 gem 'rails-controller-testing'
+
+gem 'bullet', group: 'development'

@@ -31,7 +31,6 @@ RSpec.describe Food, type: :model do
     expect(food).to_not be_valid
   end
 
-
   it 'user should be present' do
     food = Food.new(name: 'Apple', measurment_unit: 'grams', price: '10')
     expect(food).to_not be_valid

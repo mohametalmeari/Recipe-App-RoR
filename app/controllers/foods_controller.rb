@@ -5,7 +5,7 @@ class FoodsController < ApplicationController
   end
 
   def index
-    @foods = Food.all.order(created_at: :desc)
+    @foods = Food.all.includes([:ingredients]).order(created_at: :desc)
   end
 
   def new
@@ -26,7 +26,7 @@ class FoodsController < ApplicationController
 
   def destroy
     @food = Food.find(params[:id])
-    @ingredients = @food.ingredients
+    @ingredients = @food.ingredients.includes([:recipes])
     @ingredients.destroy_all
     @food.destroy
     redirect_to foods_path

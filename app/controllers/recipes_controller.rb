@@ -5,11 +5,11 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.all.order(created_at: :desc)
+    @recipes = Recipe.all.includes([:ingredients]).order(created_at: :desc)
   end
 
   def public_recipes
-    @recipes = Recipe.where(public: true).order(created_at: :desc)
+    @recipes = Recipe.where(public: true).includes([:ingredients]).order(created_at: :desc)
   end
 
   def new
@@ -17,8 +17,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
-    @ingredients = @recipe.ingredients
+    @recipe = Recipe.find(params[:id]).includes([:ingredients])
+    @ingredients = @recipe.ingredients.includes([:foods])
   end
 
   def update
@@ -40,8 +40,8 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
-    @ingredients = @recipe.ingredients
+    @recipe = Recipe.find(params[:id]).includes([:ingredients])
+    @ingredients = @recipe.ingredients.includes([:foods])
     @ingredients.destroy_all
     @recipe.destroy
     redirect_to recipes_path
