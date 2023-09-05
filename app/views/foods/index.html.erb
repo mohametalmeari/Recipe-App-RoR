@@ -1,5 +1,5 @@
-<h1>Foods#index</h1>
-<%= link_to 'Add Food', new_food_path%>
+<div class="foods-container">
+<%= link_to 'Add Food', new_food_path, class: 'add-food-btn btn' %>
 <table>
   <tr>
     <th>Food</th>
@@ -14,7 +14,7 @@
       <td>$ <%= food.price %></td>
       <td>
         <% if can? :destroy, food %>
-          <%= button_to  "Delete", food_path(food), method: :delete %>
+          <%= button_to  "Delete", food_path(food), method: :delete, class: 'link' %>
         <% else %>
           Used by other uesrs
         <% end %>
@@ -22,3 +22,4 @@
     </tr>
   <% end %>
 </table>
+</div>

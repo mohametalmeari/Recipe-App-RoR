@@ -1,16 +1,19 @@
-<h2>New Food is being created by <i> <%= current_user.name %> </i> </h2>
-<%= form_with model: @food, url: foods_path  do |f| %>
+<p class="page-title">New Food is being created by <i> <%= current_user.name %> </i> </p>
+<%= form_with model: @food, url: foods_path, class: 'create-form'  do |f| %>
   <div class="field">
     <%= f.label :name %>: 
     <%= f.text_field :name %>
+    <span></span>
   </div>
   <div class="field">
     <%= f.label :measurment_unit %>: 
     <%= f.text_field :measurment_unit %>
+    <span></span>
   </div>
   <div class="field">
     <%= f.label :price %>: 
     <%= f.number_field :price, step: 0.01 %>
+    <span></span>
   </div>
   <%= f.hidden_field :quantity, value: 0 %>
   <%= f.submit "Add Food" %>
