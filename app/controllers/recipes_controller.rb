@@ -1,6 +1,11 @@
 class RecipesController < ApplicationController
+  load_and_authorize_resource
+  rescue_from CanCan::AccessDenied do |_exception|
+    redirect_to root_path, notice: 'Access denied'
+  end
+
   def index
-    @recipes = Recipe.all.order(created_at: :desc)
+    @recipes = Recipe.all.includes([:ingredients]).order(created_at: :desc)
   end
 
   def public_recipes

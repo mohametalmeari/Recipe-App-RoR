@@ -1,10 +1,18 @@
-<h1>Recipes#index</h1>
-<%= link_to 'Add Recipe', new_recipe_path%>
-<% @recipes.each do |recipe| %>
-  <%= link_to recipe_path(recipe) do %>
-    <p><%= recipe.name %></p>
-    <p><%= recipe.description %></p>
-    <%= button_to  "Delete", recipe_path(recipe), method: :delete %>
+<div class="recipes-container">
+  <% @recipes.each do |recipe| %>
+      <% if can? :read, recipe %>
+    <div class="recipe-card">
+        <section>
+          <%= link_to recipe_path(recipe) do %>
+            <p><%= recipe.name %></p>
+          <% end %>
+          <%= button_to  "Delete", recipe_path(recipe), method: :delete, class: 'link' %>
+        </section>
+        <section>
+          <p><%= recipe.description %></p>
+        </section>
+    </div>
+      <% end %>
   <% end %>
-<% end %>
-</table>
+  <%= link_to 'Add Recipe', new_recipe_path%>
+</div>
