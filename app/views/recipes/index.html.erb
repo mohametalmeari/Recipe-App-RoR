@@ -1,0 +1,18 @@
+<div class="recipes-container">
+  <% @recipes.each do |recipe| %>
+      <% if can? :read, recipe %>
+    <div class="recipe-card">
+        <section>
+          <%= link_to recipe_path(recipe) do %>
+            <p><%= recipe.name %></p>
+          <% end %>
+          <%= button_to  "Delete", recipe_path(recipe), method: :delete, class: 'link' %>
+        </section>
+        <section>
+          <p><%= recipe.description %></p>
+        </section>
+    </div>
+      <% end %>
+  <% end %>
+  <%= link_to 'Add Recipe', new_recipe_path%>
+</div>

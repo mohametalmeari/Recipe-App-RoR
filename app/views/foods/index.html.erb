@@ -1,0 +1,25 @@
+<div class="foods-container">
+<%= link_to 'Add Food', new_food_path, class: 'add-food-btn btn' %>
+<table>
+  <tr>
+    <th>Food</th>
+    <th>Measurement Unit</th>
+    <th>Unit Price</th>
+    <th>Actions</th>
+  </tr>
+  <% @foods.each do |food| %>
+    <tr>
+      <td><%= food.name %></td>
+      <td><%= food.measurment_unit %></td>
+      <td>$ <%= food.price %></td>
+      <td>
+        <% if can? :destroy, food %>
+          <%= button_to  "Delete", food_path(food), method: :delete, class: 'link' %>
+        <% else %>
+          Used by other uesrs
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</div>
