@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
   end
 
   def public_recipes
-    @recipes = Recipe.where(public: true).includes([:ingredients]).order(created_at: :desc)
+    @recipes = Recipe.where(public: true).order(created_at: :desc)
   end
 
   def new
@@ -17,8 +17,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id]).includes([:ingredients])
-    @ingredients = @recipe.ingredients.includes([:foods])
+    @recipe = Recipe.find(params[:id])
+    @ingredients = @recipe.ingredients
   end
 
   def update
@@ -40,8 +40,8 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id]).includes([:ingredients])
-    @ingredients = @recipe.ingredients.includes([:foods])
+    @recipe = Recipe.find(params[:id])
+    @ingredients = @recipe.ingredients
     @ingredients.destroy_all
     @recipe.destroy
     redirect_to recipes_path
