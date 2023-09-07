@@ -74,10 +74,11 @@ end
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
-gem 'devise'
+gem 'devise', github: 'heartcombo/devise'
 
 gem 'cancancan'
 
 gem 'rails-controller-testing'
 
 gem 'bullet', group: 'development'
+
